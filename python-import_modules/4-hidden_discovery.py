@@ -13,6 +13,6 @@ if __name__ == "__main__":
     # Récupérer toutes les clés (noms) dans le dictionnaire du module
     names = hidden_4.__dict__.keys()
 
-    # Filtrer les noms pour ne garder que ceux qui ne commencent pas par "__" et les trier par ordre alphabétique
+    # Filtrer les noms pour ne garder que ceux qui ne commencent pas par "__"
     for name in sorted(n for n in names if not n.startswith("__")):
         print(name)
