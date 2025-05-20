@@ -1,0 +1,1 @@
+Add all task of project python task
