@@ -3,7 +3,7 @@
 
 
 class Square:
-
+    """Class that defines a square."""
     def __init__(self, size=0):
         """Initialize a new Square with a given size."""
         self.size = size  # on passe par le setter pour validation
