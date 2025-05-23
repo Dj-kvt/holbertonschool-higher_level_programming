@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 class Rectangle:
     """Représente un rectangle."""
 
