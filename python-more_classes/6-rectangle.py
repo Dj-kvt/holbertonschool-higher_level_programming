@@ -7,14 +7,13 @@ class Rectangle:
     number_of_instances = 0  # attribut de classe
 
     def __init__(self, width=0, height=0):
-        self.width = width      # passe par le setter
-        self.height = height    # idem
-        Rectangle.number_of_instances += 1
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1  # incrément à chaque création
 
     def __del__(self):
-        """Appelé à la suppression d'une instance."""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        Rectangle.number_of_instances -= 1  # décrément à chaque suppression
 
     @property
     def width(self):
@@ -41,22 +40,17 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        return self.__width * self.__height
+        return self.width * self.height
 
     def perimeter(self):
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return 0
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Return a string representation of the rectangle."""
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return ""
-        rect = []
-        for i in range(self.__height):
-            rect.append("#" * self.__width)
-        return "\n".join(rect)
+        return "\n".join(["#" * self.width for _ in range(self.height)])
 
     def __repr__(self):
-        """Return a string representation of the rectangle for debugging."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        return f"Rectangle({self.width}, {self.height})"
