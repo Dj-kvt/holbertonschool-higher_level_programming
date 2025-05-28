@@ -1,1 +1,0 @@
-That's the readme of the project inheritance in python 
