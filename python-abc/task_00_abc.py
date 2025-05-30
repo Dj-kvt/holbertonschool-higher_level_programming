@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Module that defines an abstract base class and its subclasses."""
 
-
 from abc import ABC, abstractmethod
+"""Abstract base class for animals."""
 
 
 class Animal(ABC):

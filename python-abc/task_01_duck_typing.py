@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Duck typing example with Circle and Rectangle classes."""
+
 from abc import ABC, abstractmethod
+"""Abstract base class for shapes."""
 
 
 class Shape(ABC):
