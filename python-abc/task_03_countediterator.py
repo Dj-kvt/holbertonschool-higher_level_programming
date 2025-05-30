@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CountedIterator class that counts the number of iterations over an iterable."""
+"""CountedIterator class that counts the number iterable."""
 
 
 class CountedIterator:
