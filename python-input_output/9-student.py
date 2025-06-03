@@ -19,4 +19,5 @@ class Student:
     
     def __str__(self):
         """Return string representation of Student instance"""
-        return "[Student] {} {} - {}".format(self.first_name, self.last_name, self.age)
+        return "[Student] {} {} - {}".format(
+            self.first_name, self.last_name, self.age)

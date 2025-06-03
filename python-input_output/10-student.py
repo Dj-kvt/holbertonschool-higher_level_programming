@@ -6,6 +6,7 @@ class_to_json = __import__('8-class_to_json').class_to_json
 
 class Student(Myclass):
     """Student class"""
+
     def __init__(self, first_name, last_name, age):
         """Initialize Student instance"""
         super().__init__(first_name)

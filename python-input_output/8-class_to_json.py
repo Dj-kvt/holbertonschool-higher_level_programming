@@ -2,6 +2,7 @@
 """Defines a class_to_json function that returns the dictionary description
 without any instance-specific attributes."""
 
+
 def class_to_json(obj):
     """Returns the dictionary description with simple data structure
     (list, dictionary, string, integer and boolean) for JSON serialization
