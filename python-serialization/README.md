@@ -1,0 +1,1 @@
+Applicate the serialization in my tasks
