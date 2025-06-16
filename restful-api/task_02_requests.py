@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 import csv
 """Désole pour mes commzntaires en français."""
@@ -19,8 +20,8 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
-    """Récupère les posts et les sauvegarde dans un fichier CSV."""
-    response = requests.get('https://jsonplaceholder.typicode.com/posts')
+    url = 'https://jsonplaceholder.typicode.com/posts'
+    response = requests.get(url)
 
     if response.status_code == 200:
         posts = response.json()
@@ -31,13 +32,12 @@ def fetch_and_save_posts():
             for post in posts
         ]
 
-        # On écrit les posts dans un fichier CSV
-        with open('posts.csv', 'w', newline='') as file:
+        # Écriture dans un fichier CSV
+        with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = ['id', 'title', 'body']
-            writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writeheader()
-            for post in posts:
-                writer.writerow(post)
+            writer.writerows(data)
     else:
-        print("Erreur lors de la récupération des posts.")
+        print("Échec de la requête :", response.status_code)
