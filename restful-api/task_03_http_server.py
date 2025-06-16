@@ -1,54 +1,61 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+#!/usr/bin/env python3
+import http.server
+import socketserver
 import json
-"""Désole pour mes commzntaires en français."""
 
 
-class SimpleAPIHandler(BaseHTTPRequestHandler):
-
+class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
-        # Gérer les différentes URL demandées 
-        if self.path == '/':
+        """Gère les requêtes GET"""
+
+        # Route principale : /
+        if self.path == "/":
             self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
 
-        elif self.path == '/data':
+        # Route /data
+        elif self.path == "/data":
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header("Content-type", "application/json")
             self.end_headers()
             data = {
                 "name": "John",
                 "age": 30,
                 "city": "New York"
             }
-            self.wfile.write(json.dumps(data).encode())
+            self.wfile.write(json.dumps(data).encode('utf-8'))
 
-        elif self.path == '/status':
+        # Route /status
+        elif self.path == "/status":
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            status_data = {
+            self.wfile.write(b"OK")
+
+        # Route /info (facultative mais suggérée)
+        elif self.path == "/info":
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            info = {
                 "version": "1.0",
                 "description": "A simple API built with http.server"
             }
-            self.wfile.write(json.dumps(status_data).encode())
+            self.wfile.write(json.dumps(info).encode("utf-8"))
 
+        # Toutes les autres routes
         else:
-            # Endpoint non trouvé
             self.send_response(404)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"404 Not Found: Endpoint not found.")
+            self.wfile.write(b"Endpoint not found")
 
 
-# Démarrer le serveur
-def run():
-    server_address = ('', 8000)  # écoute sur le port 8000
-    httpd = HTTPServer(server_address, SimpleAPIHandler)
-    print("Server running on http://localhost:8000...")
-    httpd.serve_forever()
-
-
-if __name__ == '__main__':
-    run()
+# Démarrage du serveur
+if name == "__main__":
+    PORT = 8000
+    with socketserver.TCPServer(("", PORT), SimpleHTTPRequestHandler) as httpd:
+        print(f"Serving on port {PORT}...")
+        httpd.serve_forever()
