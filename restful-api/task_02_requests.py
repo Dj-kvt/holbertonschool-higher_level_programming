@@ -25,6 +25,12 @@ def fetch_and_save_posts():
     if response.status_code == 200:
         posts = response.json()
 
+        # On crée une liste contenant uniquement les champs demandés
+        data = [
+            {'id': post['id'], 'title': post['title'], 'body': post['body']}
+            for post in posts
+        ]
+
         # On écrit les posts dans un fichier CSV
         with open('posts.csv', 'w', newline='') as file:
             fieldnames = ['id', 'title', 'body']
