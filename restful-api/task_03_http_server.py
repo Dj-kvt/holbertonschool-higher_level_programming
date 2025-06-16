@@ -54,7 +54,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
 
 # Démarrage du serveur
-if name == "__main__":
+if __name__ == "__main__":
     PORT = 8000
     with socketserver.TCPServer(("", PORT), SimpleHTTPRequestHandler) as httpd:
         print(f"Serving on port {PORT}...")
