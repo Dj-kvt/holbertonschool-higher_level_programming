@@ -6,7 +6,7 @@ import json
 class SimpleAPIHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        # Gérer les différentes URL demandées
+        # Gérer les différentes URL demandées 
         if self.path == '/':
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
