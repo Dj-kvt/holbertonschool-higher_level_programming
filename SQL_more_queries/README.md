@@ -1,0 +1,1 @@
+Start to handle join and grant peivileges 
