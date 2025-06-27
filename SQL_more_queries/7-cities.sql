@@ -1,10 +1,10 @@
--- Créer la base de données si elle n'existe pas
+-- Create database
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
--- Utiliser la base
+-- command for use the base
 USE hbtn_0d_usa;
 
--- Créer la table states si elle n'existe pas
+-- Create table if already  not exist
 CREATE TABLE IF NOT EXISTS cities (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(256) NOT NULL,
