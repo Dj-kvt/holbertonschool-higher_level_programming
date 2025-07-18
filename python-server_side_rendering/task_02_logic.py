@@ -39,5 +39,5 @@ def items():
     return render_template('items.html', items=items_list)
 
 
-if name == '__main__':
+if __name__ == '__main__':
     app.run(debug=True, port=5000)
