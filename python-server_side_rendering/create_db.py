@@ -23,5 +23,5 @@ def create_database():
     conn.commit()
     conn.close()
 
-if name == '__main__':
+if __name__ == '__main__':
     create_database()
